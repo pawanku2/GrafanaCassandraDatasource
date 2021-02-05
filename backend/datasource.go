@@ -61,7 +61,7 @@ func (ds *CassandraDatasource) Query(ctx context.Context, tsdbReq *datasource.Da
 		return &datasource.DatasourceResponse{
 			Results: []*datasource.QueryResult{
 				&datasource.QueryResult{
-					Error: "Unable to establish connection with the database",
+					Error: fmt.Sprintf("Unable to establish connection with the database: %s", err.Error()),
 				},
 			},
 		}, nil
